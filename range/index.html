@@ -1,0 +1,55 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+  <meta charset = "utf-8"/>
+  <meta name = "viewport" content = "width = device-width,  initial-scale = 1.0,  maximum-scale = 1.0,  minimum-scale = 1.0,  user-scalable = no"/>
+  <title>时间</title>
+  <script src="jquery.min.js"></script>
+  <script src="sllRange.js"></script>
+
+  <style>
+ * {margin:0;padding:0;list-style:none;border:0;box-sizing: border-box;}
+body{background: #000}
+.my-range{width:358px;height:100px;margin:100px auto;}
+.range-line{width:100%;height: 10px;background:#999;position:relative;border-radius:5px;top:55px;}
+.rang-block{position: absolute;width:30px;height:30px;background: rgba(255, 0, 0, 0.5);top:-10px;border-radius: 50%;z-index: 1;}
+.rang-block i{position: absolute;left:50%;top:50%;display:block;width:10px;height:10px;margin: -5px 0 0 -5px;border-radius: 50%;background: red;}
+.block1{left:-15px}
+.block2{right:-15px}
+.line{height: 10px;background: #00a0e9;display:block;position: absolute;left:0;right: 0;z-index: 0}
+
+.range-num{position: absolute;bottom:20px;padding:10px;border:1px solid #ccc;color:#fff;background:rgba(0, 0, 0, 0.7);text-align: center;font-size: 16px;}
+.start-num{left:-20px;}
+.end-num{right:-20px;}
+.aa{margin:10px;padding:10px 20px 30px 40px;position: fixed;top:100px;left:150px;display: none;}
+</style>
+</head>
+<body>
+  <div id = "range1" class = "my-range"></div>
+
+  <div id = "range2" class = "my-range"></div>
+
+</body>
+</html>
+<script>
+var r1 = new myRange();
+r1.init('#range1',{
+  number: 1000, //传入的基数
+  values: [0,1000], //点的位置
+  step:100//每次滑动的数据
+})
+
+var r2 = new myRange();
+r2.init('#range2',{
+  number: 500, //传入的基数
+  values: [0,500], //点的位置
+  step:100,//每次滑动的数据
+  slide: function (arg) {
+      console.log('从'+arg[0]+'到'+arg[1])
+  }
+})
+
+
+
+
+</script>
